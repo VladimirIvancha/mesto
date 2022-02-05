@@ -1,0 +1,16 @@
+.profile__edit-button {
+    width: 18px;
+    height: 18px;
+    border: solid 1px #FFFFFF;
+    background-image: url(/images/Vector-pen.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    margin-top: 34px;
+}
+@media screen and (min-width: 880px) {
+    .profile__edit-button {
+        margin-left: 18px;
+        margin-top: 77px;
+    }
+}
