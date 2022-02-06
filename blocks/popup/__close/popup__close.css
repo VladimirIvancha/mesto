@@ -1,0 +1,18 @@
+.popup__close {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    background-image: url(/images/CloseIcon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: flex-end;
+    padding: 0;
+    margin-bottom: 16px;
+    border: black;
+}
+@media screen and (min-width: 880px) {
+    .popup__close {
+        margin-bottom: 8px;
+        margin-left: 438px;
+    }
+}
