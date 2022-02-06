@@ -16,3 +16,15 @@ const toggleLikeUnlike = function() {
     likeUnlikeElement.classList.toggle('element__group_black');
 };
 likeUnlikeElement.addEventListener('click', toggleLikeUnlike);
+
+// реализуем  заполнение формы - редактирование имени и инфо о себе;
+let formElement = document.querySelector('.popup__save-info');
+function formSubmitHandler (evt) {
+    evt.preventDefault();
+    var userNameInput = document.getElementById('profile-name').value;
+    var userJobInput = document.getElementById('profile-prophecy').value;
+    document.querySelector('.profile__title').innerHTML = userNameInput;
+    document.querySelector('.profile__subtitle').innerHTML = userJobInput;
+    closeEditProfilePopup();
+}
+formElement.addEventListener('click', formSubmitHandler);
