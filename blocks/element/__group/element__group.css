@@ -3,4 +3,14 @@
     height: 19px;
     margin-top: 30px;
     margin-right: 20px;
+    background-image: url(/images/heart.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 1px;
+    transition: opacity 0.3s;
+}
+.element__group:hover {
+    opacity: 0.5;
+    cursor: pointer;
 }

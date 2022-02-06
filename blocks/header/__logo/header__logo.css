@@ -5,6 +5,7 @@
     margin-left: 27px;
     margin-bottom: 31.6px;
     margin-right: auto;
+    transition: opacity 0.8s;
 }
 @media screen and (min-width: 1280px) {
     .header__logo {
@@ -13,4 +14,7 @@
         margin-left: 0px;
         margin-bottom: 41px;
     }
+}
+.header__logo:hover {
+    opacity: 0;
 }

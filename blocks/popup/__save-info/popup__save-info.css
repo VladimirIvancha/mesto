@@ -5,6 +5,7 @@
     border-radius: 2px;
     padding: 0;
     margin-top: 2px;
+    transition: opacity 0.3s;
 }
 @media screen and (min-width: 880px) {
     .popup__save-info {
@@ -12,4 +13,8 @@
         height: 50px;
         margin-top: 5px;
     }
+}
+.popup__save-info:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
