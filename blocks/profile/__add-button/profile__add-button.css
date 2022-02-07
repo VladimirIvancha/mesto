@@ -1,19 +1,19 @@
 .profile__add-button {
   min-width: 282px;
   min-height: 50px;
-  border: solid 2px #FFFFFF;
+  border: solid 2px #ffffff;
   background-image: url(/images/Vector.png);
   background-position: center;
   background-repeat: no-repeat;
   transition: opacity 0.3s;
 }
 @media screen and (min-width: 880px) {
-    .profile__add-button {
-        min-width: 150px;
-        min-height: 50px;
-    }       
+  .profile__add-button {
+    min-width: 150px;
+    min-height: 50px;
+  }
 }
 .profile__add-button:hover {
-    opacity: 0.6;
-    cursor: pointer;
+  opacity: 0.6;
+  cursor: pointer;
 }

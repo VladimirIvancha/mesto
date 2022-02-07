@@ -1,21 +1,21 @@
 .profile__edit-button {
-    width: 18px;
-    height: 18px;
-    border: solid 1px #FFFFFF;
-    background-image: url(/images/Vector-pen.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    margin-left: 10px;
-    margin-top: 34px;
-    transition: opacity 0.3s;
+  width: 18px;
+  height: 18px;
+  border: solid 1px #ffffff;
+  background-image: url(/images/Vector-pen.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+  margin-top: 34px;
+  transition: opacity 0.3s;
 }
 @media screen and (min-width: 880px) {
-    .profile__edit-button {
-        margin-left: 18px;
-        margin-top: 77px;
-    }
+  .profile__edit-button {
+    margin-left: 18px;
+    margin-top: 77px;
+  }
 }
 .profile__edit-button:hover {
-    opacity: 0.6;
-    cursor: pointer;
+  opacity: 0.6;
+  cursor: pointer;
 }

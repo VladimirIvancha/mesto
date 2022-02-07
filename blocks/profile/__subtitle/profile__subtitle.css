@@ -5,13 +5,13 @@
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 0;
   margin-bottom: 36px;
 }
 @media screen and (min-width: 880px) {
-    .profile__subtitle {
-        font-size: 18px;
-        line-height: 22px;
-    }
+  .profile__subtitle {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
