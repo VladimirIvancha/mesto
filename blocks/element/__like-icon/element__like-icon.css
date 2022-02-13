@@ -1,4 +1,4 @@
-.element__group {
+.element__like-icon {
   width: 22px;
   height: 19px;
   margin-top: 30px;
@@ -10,7 +10,7 @@
   padding: 1px;
   transition: opacity 0.3s;
 }
-.element__group:hover {
+.element__like-icon:hover {
   opacity: 0.5;
   cursor: pointer;
 }
