@@ -3,6 +3,7 @@
   flex-direction: column;
   margin-top: 26px;
   margin-left: 46px;
+  max-width: 100%;
 }
 @media screen and (min-width: 880px) {
   .profile__text {
