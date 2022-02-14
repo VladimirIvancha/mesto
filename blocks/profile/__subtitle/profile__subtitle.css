@@ -6,7 +6,8 @@
   text-align: center;
   color: #ffffff;
   margin-top: 0;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
+  margin-left: 5px;
   text-overflow: ellipsis;
   max-width: 189px;
   overflow: hidden;
@@ -17,5 +18,6 @@
     font-size: 18px;
     line-height: 22px;
     max-width: 500px;
+    margin-left: 2px;
   }
 }
