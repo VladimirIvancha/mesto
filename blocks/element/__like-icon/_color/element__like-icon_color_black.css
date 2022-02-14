@@ -1,3 +1,5 @@
 .element__like-icon_color_black {
   background-image: url(../../../images/vector-icon-heart-black.svg);
+  border: none;
+  background-color: #FFFFFF;
 }

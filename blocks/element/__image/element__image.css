@@ -3,3 +3,8 @@
   height: 282px;
   object-fit: cover;
 }
+@media screen and (min-width: 880px) {
+  .element__image {
+    width: 282px;
+  }
+}
