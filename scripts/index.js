@@ -7,24 +7,19 @@ const openEditProfilePopup = function() {
 const closeEditProfilePopup = function() {
     popupElement.classList.remove('popup_is-opened');
 };
-popupEditButtonElement.addEventListener('click', openEditProfilePopup);
-popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
-
-// реализуем замену сердечка (like) на черное (только первое - нужно доработать);
-const likeUnlikeElement = document.querySelector('.element__group');
-const toggleLikeUnlike = function() {
-    likeUnlikeElement.classList.toggle('element__group_black');
-};
-likeUnlikeElement.addEventListener('click', toggleLikeUnlike);
-
 // реализуем  заполнение формы - редактирование имени и инфо о себе;
-let formElement = document.querySelector('.popup__save-info');
+let formElement = document.querySelector('.form');
+const profileData = document.querySelector('.profile');
+const fieldNameData = document.getElementById('profile-name');
+const fieldNameJob = document.getElementById('profile-prophecy');
 function formSubmitHandler (evt) {
     evt.preventDefault();
-    var userNameInput = document.getElementById('profile-name').value;
-    var userJobInput = document.getElementById('profile-prophecy').value;
-    document.querySelector('.profile__title').innerHTML = userNameInput;
-    document.querySelector('.profile__subtitle').innerHTML = userJobInput;
+    var userNameInput = fieldNameData.value;
+    var userJobInput = fieldNameJob.value;
+    profileData.querySelector('.profile__title').textContent = userNameInput;
+    profileData.querySelector('.profile__subtitle').textContent = userJobInput;
     closeEditProfilePopup();
 }
-formElement.addEventListener('click', formSubmitHandler);
+formElement.addEventListener('submit', formSubmitHandler);
+popupEditButtonElement.addEventListener('click', openEditProfilePopup);
+popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
