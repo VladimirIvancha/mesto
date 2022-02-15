@@ -8,11 +8,11 @@
   background-repeat: no-repeat;
   transition: opacity 0.3s;
   border-radius: 2px;
+  background-size: 16px;
 }
 @media screen and (min-width: 880px) {
   .profile__add-button {
     min-width: 150px;
-    min-height: 50px;
   }
 }
 .profile__add-button:hover {

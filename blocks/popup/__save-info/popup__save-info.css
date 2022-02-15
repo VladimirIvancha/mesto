@@ -5,14 +5,14 @@
   border: 0;
   border-radius: 2px;
   padding: 0;
-  margin-top: 15px;
+  margin-top: 19px;
   transition: opacity 0.3s;
 }
 @media screen and (min-width: 880px) {
   .popup__save-info {
-    width: 358px;
-    height: 50px;
-    margin-top: 18px;
+    width: 360px;
+    height: 51px;
+    margin-top: 12px;
   }
 }
 .popup__save-info:hover {
