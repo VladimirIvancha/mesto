@@ -27,7 +27,7 @@
                 </div>
               </div>
             </div>
-            <button type="button" aria-label="добавить" class="profile__add-button"></button>
+            <button type="button" aria-label="добавить" class="element__add-button"></button>
           </section>
           <section class="elements">
             <article class="element">
@@ -90,10 +90,43 @@
               </form>
             </div>
         </div>
+        <div class="element__popup">
+          <div class="popup__container">
+            <button type="button" aria-label="закрыть" class="popup__close"></button>
+            <h3 class="popup__title">Новое место</h3>
+            <form name="element-form" class="form">
+              <fieldset class="form__edit">
+                <input type="text" name="element-name" class="form__item" id="element-name" value="" required placeholder="Название">
+                <input type="text" name="element-link" class="form__item" id="element-link" value="" required placeholder="Ссылка на картинку">
+                <button type="submit" class="popup__save-info">
+                  <span class="popup__button-text">Сохранить</span>
+                </button>
+              </fieldset>
+            </form>
+          </div>
+      </div>
         <!-- Подвал -->
         <footer class="footer">
           <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
         </footer>
+        <!-- Темплейт -->
+        <template class="item__tamplate">
+          <li class="list__item item">
+            <span class="item__text"></span>
+            <button class="item__control item__control_type_edit"></button>
+            <button class="item__control item__control_type_duplicate"></button>
+            <button class="item__control item__control_type_delete"></button>
+          </li>
+        </template>
+        <template class="item__tamplate">
+          <article class="element">
+            <img src="./images/kirill-pershin-1088404-unsplash.png" alt="кирпичная башня в горах" class="element__image">
+            <div class="element__wrapper">
+                <h2 class="element__title">Карачаевочеркесск-длинное название специаьно-для проверки</h2>
+                <button type="button" aria-label="лайкнуть" class="element__like-icon"></button>
+            </div>
+          </article>
+        </template>
     </div>
     <script src="./scripts/index.js"></script>
 </body>

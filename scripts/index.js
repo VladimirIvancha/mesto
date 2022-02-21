@@ -1,12 +1,41 @@
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 
 const popupElement = document.querySelector('.popup');
+const profileElement = document.querySelector('.profile');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
-const popupEditButtonElement = document.querySelector('.profile__edit-button');
+const popupEditButtonElement = profileElement.querySelector('.profile__edit-button');
 let formElement = popupElement.querySelector('.form');
-const profileData = document.querySelector('.profile');
-let profileName = profileData.querySelector('.profile__title');
-let profileJob = profileData.querySelector('.profile__subtitle');
+let profileName = profileElement.querySelector('.profile__title');
+let profileJob = profileElement.querySelector('.profile__subtitle');
 let fieldNameData = document.getElementById('profile-name');
 let fieldNameJob = document.getElementById('profile-prophecy');
+const popupPlaceElement = document.querySelector('.element__popup');
+const popupCloseButtonPlaceElement = popupPlaceElement.querySelector('.popup__close');
+const popupAddButtonElement = profileElement.querySelector('.element__add-button');
 const openEditProfilePopup = function() {
   popupElement.classList.add('popup_is-opened');
   fieldNameData.value = profileName.textContent;
@@ -23,6 +52,14 @@ function formSubmitHandler (evt) {
     profileJob.textContent = userJobInput;
     closeEditProfilePopup();
 }
+const openAddElementPopup = function() {
+  popupPlaceElement.classList.add('popup_is-opened');
+};
+const closeAddElementPopup = function() {
+  popupPlaceElement.classList.remove('popup_is-opened');
+};
 formElement.addEventListener('submit', formSubmitHandler);
 popupEditButtonElement.addEventListener('click', openEditProfilePopup);
 popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
+popupAddButtonElement.addEventListener('click', openAddElementPopup);
+popupCloseButtonPlaceElement.addEventListener('click', closeAddElementPopup);
