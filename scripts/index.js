@@ -36,6 +36,10 @@ let fieldNameJob = document.getElementById('profile-prophecy');
 const popupPlaceElement = document.querySelector('.element__popup');
 const popupCloseButtonPlaceElement = popupPlaceElement.querySelector('.popup__close');
 const popupAddButtonElement = profileElement.querySelector('.element__add-button');
+const templateElement = document.querySelector('.item__tamplate').content;
+const cardsElements = document.querySelector('.elements');
+
+
 const openEditProfilePopup = function() {
   popupElement.classList.add('popup_is-opened');
   fieldNameData.value = profileName.textContent;
@@ -58,8 +62,21 @@ const openAddElementPopup = function() {
 const closeAddElementPopup = function() {
   popupPlaceElement.classList.remove('popup_is-opened');
 };
+function renderCard(element) {
+  const cardElement = templateElement.cloneNode(true);
+  const titleElement = cardElement.querySelector('.element__title');
+  titleElement.textContent = element.name;
+  const imageElement = cardElement.querySelector('.element__image');
+  imageElement.src = element.link;
+  cardsElements.appendChild(cardElement);
+};
+function renderItems(initialCards) {
+  initialCards.forEach(renderCard);
+};
+
 formElement.addEventListener('submit', formSubmitHandler);
 popupEditButtonElement.addEventListener('click', openEditProfilePopup);
 popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
 popupAddButtonElement.addEventListener('click', openAddElementPopup);
 popupCloseButtonPlaceElement.addEventListener('click', closeAddElementPopup);
+renderItems(initialCards);
