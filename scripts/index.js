@@ -24,6 +24,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ]; 
+
 const popupElement = document.querySelector('.popup');
 const profileElement = document.querySelector('.profile');
 const popupCloseButtonElement = popupElement.querySelector('.popup__close');
@@ -34,10 +35,13 @@ let profileJob = profileElement.querySelector('.profile__subtitle');
 let fieldNameData = document.getElementById('profile-name');
 let fieldNameJob = document.getElementById('profile-prophecy');
 const popupPlaceElement = document.querySelector('.element__popup');
+let formCardElement = popupPlaceElement.querySelector('.form');
 const popupCloseButtonPlaceElement = popupPlaceElement.querySelector('.popup__close');
 const popupAddButtonElement = profileElement.querySelector('.element__add-button');
 const templateElement = document.querySelector('.item__tamplate').content;
 const cardsElements = document.querySelector('.elements');
+let fieldNameCard = document.getElementById('element-name');
+let fieldNameLink = document.getElementById('element-link');
 
 const openEditProfilePopup = function() {
   popupElement.classList.add('popup_is-opened');
@@ -57,6 +61,8 @@ function formSubmitHandler (evt) {
 }
 const openAddElementPopup = function() {
   popupPlaceElement.classList.add('popup_is-opened');
+  fieldNameCard.value = "";
+  fieldNameLink.value = "";
 };
 const closeAddElementPopup = function() {
   popupPlaceElement.classList.remove('popup_is-opened');
@@ -90,8 +96,29 @@ function handleLike (event) {
   const cardElement = event.target.closest('.element__like-icon');
   cardElement.classList.toggle('element__like-icon-active');
 }
+function formAddCardSubmitHandler (evt) {
+  evt.preventDefault();
+  var userCardUnput = fieldNameCard.value;
+  var userLinkInput = fieldNameLink.value;
+  cardsElements.insertAdjacentHTML("afterbegin", `
+  <article class="element">
+    <img src="${userLinkInput}" class="element__image" alt="добавленное изображение">
+      <button type="button" aria-label="удалить" class="element__delete-button"></button>
+    <div class="element__wrapper">
+      <h2 class="element__title">${userCardUnput}</h2>
+      <button type="button" aria-label="лайкнуть" class="element__like-icon"></button>
+    </div>
+  </article>
+  `)
+  const cardButtonDelete = document.querySelector('.element__delete-button');
+  const cardButtonLike = document.querySelector('.element__like-icon');
+  cardButtonDelete.addEventListener('click', handleDelete);
+  cardButtonLike.addEventListener('click', handleLike);
+  closeAddElementPopup();
+}
 
 formElement.addEventListener('submit', formSubmitHandler);
+formCardElement.addEventListener('submit', formAddCardSubmitHandler);
 popupEditButtonElement.addEventListener('click', openEditProfilePopup);
 popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
 popupAddButtonElement.addEventListener('click', openAddElementPopup);
