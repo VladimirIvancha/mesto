@@ -65,6 +65,9 @@ const closeAddElementPopup = function() {
 function renderCard(element) {
   const cardElement = templateElement.cloneNode(true);
   const titleElement = cardElement.querySelector('.element__title');
+
+  setEventListeners(cardElement);
+
   titleElement.textContent = element.name;
   const imageElement = cardElement.querySelector('.element__image');
   imageElement.src = element.link;
@@ -73,6 +76,14 @@ function renderCard(element) {
 function renderItems(initialCards) {
   initialCards.forEach(renderCard);
 };
+function setEventListeners(cardElement) {
+  cardElement.querySelector('.element__delete-button').addEventListener('click', handleDelete);
+
+}
+function handleDelete (event) {
+  const cardElement = event.target.closest('.element');
+  cardElement.remove();
+}
 
 formElement.addEventListener('submit', formSubmitHandler);
 popupEditButtonElement.addEventListener('click', openEditProfilePopup);
