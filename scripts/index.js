@@ -39,7 +39,6 @@ const popupAddButtonElement = profileElement.querySelector('.element__add-button
 const templateElement = document.querySelector('.item__tamplate').content;
 const cardsElements = document.querySelector('.elements');
 
-
 const openEditProfilePopup = function() {
   popupElement.classList.add('popup_is-opened');
   fieldNameData.value = profileName.textContent;
@@ -67,6 +66,7 @@ function renderCard(element) {
   const titleElement = cardElement.querySelector('.element__title');
 
   setEventListeners(cardElement);
+  setEventLike(cardElement);
 
   titleElement.textContent = element.name;
   const imageElement = cardElement.querySelector('.element__image');
@@ -78,11 +78,17 @@ function renderItems(initialCards) {
 };
 function setEventListeners(cardElement) {
   cardElement.querySelector('.element__delete-button').addEventListener('click', handleDelete);
-
 }
 function handleDelete (event) {
   const cardElement = event.target.closest('.element');
   cardElement.remove();
+}
+function setEventLike(cardElement) {
+  cardElement.querySelector('.element__like-icon').addEventListener('click', handleLike);
+}
+function handleLike (event) {
+  const cardElement = event.target.closest('.element__like-icon');
+  cardElement.classList.toggle('element__like-icon-active');
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
