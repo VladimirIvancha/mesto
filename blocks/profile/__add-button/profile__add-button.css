@@ -1,4 +1,4 @@
-.element__add-button {
+.profile__add-button {
   min-width: 282px;
   min-height: 50px;
   border: solid 2px #ffffff;
@@ -11,11 +11,11 @@
   background-size: 16px;
 }
 @media screen and (min-width: 880px) {
-  .element__add-button {
+  .profile__add-button {
     min-width: 150px;
   }
 }
-.element__add-button:hover {
+.profile__add-button:hover {
   opacity: 0.6;
   cursor: pointer;
 }
