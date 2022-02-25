@@ -147,5 +147,4 @@ popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
 popupAddButtonElement.addEventListener('click', openAddElementPopup);
 popupCloseButtonPlaceElement.addEventListener('click', closeAddElementPopup);
 popupCloseButtonImageElement.addEventListener('click', closeElementPopupImage);
-// elementImage.addEventListener('click', imagePopup);
 renderItems(initialCards);
