@@ -25,17 +25,17 @@ const initialCards = [
   }
 ]; 
 
-const popupElement = document.querySelector('.popup');
+const profilePopup = document.querySelector('.profile-popup');
 const profileElement = document.querySelector('.profile');
-const popupCloseButtonElement = popupElement.querySelector('.popup__close');
+const popupCloseButtonElement = profilePopup.querySelector('.popup__close');
 const popupEditButtonElement = profileElement.querySelector('.profile__edit-button');
-let formElement = popupElement.querySelector('.form');
+const formElement = profilePopup.querySelector('.form');
 let profileName = profileElement.querySelector('.profile__title');
 let profileJob = profileElement.querySelector('.profile__subtitle');
 let fieldNameData = document.getElementById('profile-name');
 let fieldNameJob = document.getElementById('profile-prophecy');
 const popupPlaceElement = document.querySelector('.element-popup');
-let formCardElement = popupPlaceElement.querySelector('.form');
+const formCardElement = popupPlaceElement.querySelector('.form');
 const popupCloseButtonPlaceElement = popupPlaceElement.querySelector('.popup__close');
 const popupAddButtonElement = profileElement.querySelector('.profile__add-button');
 const templateElement = document.querySelector('.item-tamplate').content;
@@ -45,30 +45,38 @@ let fieldNameLink = document.getElementById('element-link');
 const elementImage = document.querySelector('.element__image');
 const elementPopupImage = document.querySelector('.element-popup-image');
 const popupCloseButtonImageElement = elementPopupImage.querySelector('.popup__close');
+const titleElementPopup = elementPopupImage.querySelector('.popup__image-title');
+const imageElementPopup = elementPopupImage.querySelector('.popup__image');
 
+function openPopup(popup) {
+  popup.classList.add('popup_is-opened');
+}
+function closePopup(popup) {
+  popup.classList.remove('popup_is-opened');
+}
 const openEditProfilePopup = function() {
-  popupElement.classList.add('popup_is-opened');
+  openPopup(profilePopup);
   fieldNameData.value = profileName.textContent;
   fieldNameJob.value = profileJob.textContent;
 };
 const closeEditProfilePopup = function() {
-    popupElement.classList.remove('popup_is-opened');
+  closePopup(profilePopup);
 };
-function formSubmitHandler (evt) {
+function fillFormSubmitHandler (evt) {
     evt.preventDefault();
-    var userNameInput = fieldNameData.value;
-    var userJobInput = fieldNameJob.value;
+    const userNameInput = fieldNameData.value;
+    const userJobInput = fieldNameJob.value;
     profileName.textContent = userNameInput;
     profileJob.textContent = userJobInput;
-    closeEditProfilePopup();
+    closePopup(profilePopup);
 }
 const openAddElementPopup = function() {
-  popupPlaceElement.classList.add('popup_is-opened');
+  openPopup(popupPlaceElement);
   fieldNameCard.value = "";
   fieldNameLink.value = "";
 };
 const closeAddElementPopup = function() {
-  popupPlaceElement.classList.remove('popup_is-opened');
+  closePopup(popupPlaceElement);
 };
 function renderCard(element) {
   const cardElement = templateElement.cloneNode(true);
@@ -105,19 +113,17 @@ function setImagePopup (cardElement) {
 }
 function handlePopup (event) {
   event.preventDefault();
-  elementPopupImage.classList.add('popup_is-opened');
+  openPopup(elementPopupImage);
   const cardElement = event.target.closest('.element');
   const titleElement = cardElement.querySelector('.element__title');
   const imageElement = cardElement.querySelector('.element__image');
-  const titleElementPopup = elementPopupImage.querySelector('.popup__image-title');
-  const imageElementPopup = elementPopupImage.querySelector('.popup__image');
   titleElementPopup.textContent = titleElement.textContent;
   imageElementPopup.src = imageElement.src;
 }
 const closeElementPopupImage = function() {
-  elementPopupImage.classList.remove('popup_is-opened');
+  closePopup(elementPopupImage);
 };
-function formAddCardSubmitHandler (evt) {
+function fillFormAddCardSubmitHandler (evt) {
   evt.preventDefault();
   var userCardUnput = fieldNameCard.value;
   var userLinkInput = fieldNameLink.value;
@@ -140,8 +146,8 @@ function formAddCardSubmitHandler (evt) {
   closeAddElementPopup();
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
-formCardElement.addEventListener('submit', formAddCardSubmitHandler);
+formElement.addEventListener('submit', fillFormSubmitHandler);
+formCardElement.addEventListener('submit', fillFormAddCardSubmitHandler);
 popupEditButtonElement.addEventListener('click', openEditProfilePopup);
 popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
 popupAddButtonElement.addEventListener('click', openAddElementPopup);
