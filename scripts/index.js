@@ -78,23 +78,22 @@ const openAddElementPopup = function() {
 const closeAddElementPopup = function() {
   closePopup(popupPlaceElement);
 };
-function renderCard(element) {
-  const cardElement = templateElement.cloneNode(true);
-  const titleElement = cardElement.querySelector('.element__title');
-
-  setEventListeners(cardElement);
+function createCard(element) {
+  const cardElement = templateElement.cloneNode(true); 
+  const titleElement = cardElement.querySelector('.element__title'); 
+  const imageElement = cardElement.querySelector('.element__image');
+  titleElement.textContent = element.name;
+  imageElement.alt = element.name;
+  imageElement.src = element.link;
+  setEventDelete(cardElement);
   setEventLike(cardElement);
   setImagePopup(cardElement);
-
-  titleElement.textContent = element.name;
-  const imageElement = cardElement.querySelector('.element__image');
-  imageElement.src = element.link;
-  cardsElements.appendChild(cardElement);
-};
-function renderItems(initialCards) {
-  initialCards.forEach(renderCard);
-};
-function setEventListeners(cardElement) {
+  return cardElement 
+}
+initialCards.forEach((item) => {
+  cardsElements.appendChild(createCard(item));
+});
+function setEventDelete(cardElement) {
   cardElement.querySelector('.element__delete-button').addEventListener('click', handleDelete);
 }
 function handleDelete (event) {
@@ -125,24 +124,11 @@ const closeElementPopupImage = function() {
 };
 function fillFormAddCardSubmitHandler (evt) {
   evt.preventDefault();
-  var userCardUnput = fieldNameCard.value;
-  var userLinkInput = fieldNameLink.value;
-  cardsElements.insertAdjacentHTML("afterbegin", `
-  <article class="element">
-    <img src="${userLinkInput}" class="element__image" alt="добавленное изображение">
-      <button type="button" aria-label="удалить" class="element__delete-button"></button>
-    <div class="element__wrapper">
-      <h2 class="element__title">${userCardUnput}</h2>
-      <button type="button" aria-label="лайкнуть" class="element__like-icon"></button>
-    </div>
-  </article>
-  `)
-  const cardButtonDelete = document.querySelector('.element__delete-button');
-  const cardButtonLike = document.querySelector('.element__like-icon');
-  const cardOpenImagePopup = document.querySelector('.element__image');
-  cardButtonDelete.addEventListener('click', handleDelete);
-  cardButtonLike.addEventListener('click', handleLike);
-  cardOpenImagePopup.addEventListener('click', handlePopup);
+  const userCardInput = {
+    name: fieldNameCard.value,
+    link: fieldNameLink.value
+  };
+  cardsElements.prepend(createCard(userCardInput));
   closeAddElementPopup();
 }
 
@@ -153,4 +139,3 @@ popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
 popupAddButtonElement.addEventListener('click', openAddElementPopup);
 popupCloseButtonPlaceElement.addEventListener('click', closeAddElementPopup);
 popupCloseButtonImageElement.addEventListener('click', closeElementPopupImage);
-renderItems(initialCards);
