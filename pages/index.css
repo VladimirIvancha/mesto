@@ -44,3 +44,6 @@
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__edit/form__edit.css);
 @import url(../blocks/form/__item/form__item.css);
+@import url(../blocks/form/__item-name/form__item-name.css);
+@import url(../blocks/form/__item-prophecy/form__item-prophecy.css);
+
