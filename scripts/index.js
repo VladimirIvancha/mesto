@@ -30,24 +30,18 @@ const profileElement = document.querySelector('.profile');
 const popupCloseButtonElement = profilePopup.querySelector('.popup__close');
 const popupEditButtonElement = profileElement.querySelector('.profile__edit-button');
 const formElement = profilePopup.querySelector('.form');
-// переменная ниже перезаписывается в строке 75
-let profileName = profileElement.querySelector('.profile__title');
-// переменная ниже перезаписывается в строке 76
-let profileJob = profileElement.querySelector('.profile__subtitle');
-// переменная ниже перезаписывается в строке 65
-let fieldNameData = profilePopup.querySelector('.form__item-name');
-// переменная ниже перезаписывается в строке 66
-let fieldNameJob = profilePopup.querySelector('.form__item-prophecy');
+const profileName = profileElement.querySelector('.profile__title');
+const profileJob = profileElement.querySelector('.profile__subtitle');
+const fieldNameData = profilePopup.querySelector('.form__item-name');
+const fieldNameJob = profilePopup.querySelector('.form__item-prophecy');
 const popupPlaceElement = document.querySelector('.element-popup');
 const formCardElement = popupPlaceElement.querySelector('.form');
 const popupCloseButtonPlaceElement = popupPlaceElement.querySelector('.popup__close');
 const popupAddButtonElement = profileElement.querySelector('.profile__add-button');
 const templateElement = document.querySelector('.item-tamplate').content;
 const cardsElements = document.querySelector('.elements');
-// переменная ниже перезаписывается в строке 81
-let fieldNameCard = document.getElementById('element-name');
-// переменная ниже перезаписывается в строке 82
-let fieldNameLink = document.getElementById('element-link');
+const fieldNameCard = document.getElementById('element-name');
+const fieldNameLink = document.getElementById('element-link');
 const elementImage = document.querySelector('.element__image');
 const elementPopupImage = document.querySelector('.element-popup-image');
 const popupCloseButtonImageElement = elementPopupImage.querySelector('.popup__close');
