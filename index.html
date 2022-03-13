@@ -37,10 +37,12 @@
           <div class="popup__container">
             <button type="button" aria-label="закрыть" class="popup__close"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form name="profile-form" class="form">
+            <form name="profile-form" class="form" novalidate>
               <fieldset class="form__edit">
-                <input type="text" name="profile-name" class="form__item form__item-name" id="profile-name" value="" required placeholder="Ваше Имя">
-                <input type="text" name="profile-prophecy" class="form__item form__item-prophecy" id="profile-prophecy" value="" required placeholder="О себе">
+                <input type="text" name="profile-name" class="form__item form__item-name" id="profile-name" value="" required placeholder="Ваше Имя" minlength="2" maxlength="40">
+                <span class="form__input-error" id="profile-name-error"></span>
+                <input type="text" name="profile-prophecy" class="form__item form__item-prophecy" id="profile-prophecy" value="" required placeholder="О себе" minlength="2" maxlength="200">
+                <span class="form__input-error" id="profile-prophecy-error"></span>
                 <button type="submit" class="popup__save-info">
                   <span class="popup__button-text">Сохранить</span>
                 </button>
@@ -52,10 +54,12 @@
           <div class="popup__container">
             <button type="button" aria-label="закрыть" class="popup__close"></button>
             <h3 class="popup__title">Новое место</h3>
-            <form name="element-form" class="form">
+            <form name="element-form" class="form" novalidate>
               <fieldset class="form__edit">
-                <input type="text" name="element-name" class="form__item" id="element-name" value="" required placeholder="Название">
-                <input type="text" name="element-link" class="form__item" id="element-link" value="" required placeholder="Ссылка на картинку">
+                <input type="text" name="element-name" class="form__item" id="element-name" value="" required placeholder="Название" minlength="2" maxlength="30">
+                <span class="form__input-error" id="element-name-error"></span>
+                <input type="url" name="element-link" class="form__item" id="element-link" value="" required placeholder="Ссылка на картинку">
+                <span class="form__input-error" id="element-link-error"></span>
                 <button type="submit" class="popup__save-info">
                   <span class="popup__button-text">Сохранить</span>
                 </button>
@@ -87,5 +91,6 @@
         </template>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 </html>
