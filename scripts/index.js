@@ -131,7 +131,15 @@ function fillFormAddCardSubmitHandler (evt) {
   };
   cardsElements.prepend(createCard(userCardInput));
   closeAddElementPopup();
-}
+};
+// Реализация закрытия попапа при клике на оверлэй
+const closePopupByClickOnOverlay = function (event) {
+  if (event.target !== event.currentTarget) {
+    return;
+  }
+  const popupElement = event.target.closest('.popup');
+  closePopup(popupElement);
+};
 
 formElement.addEventListener('submit', fillFormSubmitHandler);
 formCardElement.addEventListener('submit', fillFormAddCardSubmitHandler);
@@ -140,3 +148,6 @@ popupCloseButtonElement.addEventListener('click', closeEditProfilePopup);
 popupAddButtonElement.addEventListener('click', openAddElementPopup);
 popupCloseButtonPlaceElement.addEventListener('click', closeAddElementPopup);
 popupCloseButtonImageElement.addEventListener('click', closeElementPopupImage);
+profilePopup.addEventListener('click', closePopupByClickOnOverlay);
+popupPlaceElement.addEventListener('click', closePopupByClickOnOverlay);
+elementPopupImage.addEventListener('click', closePopupByClickOnOverlay);
