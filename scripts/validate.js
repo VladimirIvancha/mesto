@@ -78,7 +78,7 @@ const toggleButtonState = (inputList, buttonElement) => {
     } else {
       // иначе сделай кнопку активной
       buttonElement.classList.remove('popup__save-info_inactive');
-      buttonElement.removeAttribute("disabled");
+      buttonElement.removeAttribute("disabled", true);
     }
   }; 
 

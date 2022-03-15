@@ -63,12 +63,15 @@ const closeEditProfilePopup = function() {
   closePopup(profilePopup);
 };
 function fillFormSubmitHandler (evt) {
-    evt.preventDefault();
-    const userNameInput = fieldNameData.value;
-    const userJobInput = fieldNameJob.value;
-    profileName.textContent = userNameInput;
-    profileJob.textContent = userJobInput;
-    closePopup(profilePopup);
+  evt.preventDefault();
+  const buttonElement = profilePopup.querySelector('.popup__save-info');
+  const userNameInput = fieldNameData.value;
+  const userJobInput = fieldNameJob.value;
+  profileName.textContent = userNameInput;
+  profileJob.textContent = userJobInput;
+  closePopup(profilePopup);
+  buttonElement.classList.add('popup__save-info_inactive');
+  buttonElement.setAttribute("disabled", true);
 }
 const openAddElementPopup = function() {
   openPopup(popupPlaceElement);
@@ -125,12 +128,15 @@ const closeElementPopupImage = function() {
 };
 function fillFormAddCardSubmitHandler (evt) {
   evt.preventDefault();
+  const buttonElement = popupPlaceElement.querySelector('.popup__save-info');
   const userCardInput = {
     name: fieldNameCard.value,
     link: fieldNameLink.value
   };
   cardsElements.prepend(createCard(userCardInput));
   closeAddElementPopup();
+  buttonElement.classList.add('popup__save-info_inactive');
+  buttonElement.setAttribute("disabled", true);
 };
 // Реализация закрытия попапа при клике на оверлэй
 const closePopupByClickOnOverlay = function (event) {
