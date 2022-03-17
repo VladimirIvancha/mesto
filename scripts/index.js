@@ -179,5 +179,3 @@ popupCloseButtonImageElement.addEventListener("click", closeElementPopupImage);
 profilePopup.addEventListener("click", closePopupByClickOnOverlay);
 popupPlaceElement.addEventListener("click", closePopupByClickOnOverlay);
 elementPopupImage.addEventListener("click", closePopupByClickOnOverlay);
-profilePopup.addEventListener("keydown", closePopupByKeydownEsc);
-popupPlaceElement.addEventListener("keydown", closePopupByKeydownEsc);
