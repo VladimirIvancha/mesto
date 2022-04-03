@@ -1,3 +1,5 @@
+import { Card } from './Card.js';
+
 const initialCards = [
   {
     name: "Архыз",
@@ -48,7 +50,7 @@ const templateElement = document.querySelector(".item-tamplate").content;
 const cardsElements = document.querySelector(".elements");
 const fieldNameCard = document.querySelector("#element-name");
 const fieldNameLink = document.querySelector("#element-link");
-const elementImage = document.querySelector(".element__image");
+// const elementImage = document.querySelector(".element__image");
 const elementPopupImage = document.querySelector(".element-popup-image");
 const popupCloseButtonImageElement =
   elementPopupImage.querySelector(".popup__close");
@@ -92,54 +94,62 @@ const openAddElementPopup = function () {
 const closeAddElementPopup = function () {
   closePopup(popupPlaceElement);
 };
-function createCard(element) {
-  const cardElement = templateElement.cloneNode(true);
-  const titleElement = cardElement.querySelector(".element__title");
-  const imageElement = cardElement.querySelector(".element__image");
-  titleElement.textContent = element.name;
-  imageElement.alt = element.name;
-  imageElement.src = element.link;
-  setEventDelete(cardElement);
-  setEventLike(cardElement);
-  setImagePopup(cardElement);
-  return cardElement;
-}
+// function createCard(element) {
+//   const cardElement = templateElement.cloneNode(true);
+//   const titleElement = cardElement.querySelector(".element__title");
+//   const imageElement = cardElement.querySelector(".element__image");
+//   titleElement.textContent = element.name;
+//   imageElement.alt = element.name;
+//   imageElement.src = element.link;
+//   setEventDelete(cardElement);
+//   setEventLike(cardElement);
+//   setImagePopup(cardElement);
+//   return cardElement;
+// }
+
 initialCards.forEach((item) => {
-  cardsElements.appendChild(createCard(item));
+  const card = new Card(item, ".item-tamplate");
+  const cardElement = card.createCard();
+
+  cardsElements.appendChild(cardElement);
 });
-function setEventDelete(cardElement) {
-  cardElement
-    .querySelector(".element__delete-button")
-    .addEventListener("click", handleDelete);
-}
-function handleDelete(event) {
-  const cardElement = event.target.closest(".element");
-  cardElement.remove();
-}
-function setEventLike(cardElement) {
-  cardElement
-    .querySelector(".element__like-icon")
-    .addEventListener("click", handleLike);
-}
-function handleLike(event) {
-  const cardElement = event.target.closest(".element__like-icon");
-  cardElement.classList.toggle("element__like-icon-active");
-}
-function setImagePopup(cardElement) {
-  cardElement
-    .querySelector(".element__image")
-    .addEventListener("click", handlePopup);
-}
-function handlePopup(event) {
-  event.preventDefault();
-  openPopup(elementPopupImage);
-  const cardElement = event.target.closest(".element");
-  const titleElement = cardElement.querySelector(".element__title");
-  const imageElement = cardElement.querySelector(".element__image");
-  titleElementPopup.textContent = titleElement.textContent;
-  imageElementPopup.alt = imageElement.alt;
-  imageElementPopup.src = imageElement.src;
-}
+
+// initialCards.forEach((item) => {
+//   cardsElements.appendChild(createCard(item));
+// });
+// function setEventDelete(cardElement) {
+//   cardElement
+//     .querySelector(".element__delete-button")
+//     .addEventListener("click", handleDelete);
+// }
+// function handleDelete(event) {
+//   const cardElement = event.target.closest(".element");
+//   cardElement.remove();
+// }
+// function setEventLike(cardElement) {
+//   cardElement
+//     .querySelector(".element__like-icon")
+//     .addEventListener("click", handleLike);
+// }
+// function handleLike(event) {
+//   const cardElement = event.target.closest(".element__like-icon");
+//   cardElement.classList.toggle("element__like-icon-active");
+// }
+// function setImagePopup(cardElement) {
+//   cardElement
+//     .querySelector(".element__image")
+//     .addEventListener("click", handlePopup);
+// }
+// function handlePopup(event) {
+//   event.preventDefault();
+//   openPopup(elementPopupImage);
+//   const cardElement = event.target.closest(".element");
+//   const titleElement = cardElement.querySelector(".element__title");
+//   const imageElement = cardElement.querySelector(".element__image");
+//   titleElementPopup.textContent = titleElement.textContent;
+//   imageElementPopup.alt = imageElement.alt;
+//   imageElementPopup.src = imageElement.src;
+// }
 const closeElementPopupImage = function () {
   closePopup(elementPopupImage);
 };
@@ -149,7 +159,11 @@ function fillFormAddCardSubmitHandler(evt) {
     name: fieldNameCard.value,
     link: fieldNameLink.value,
   };
-  cardsElements.prepend(createCard(userCardInput));
+
+  const card = new Card(userCardInput, ".item-tamplate");
+  const cardElement = card.createCard();
+
+  cardsElements.prepend(cardElement);
   closeAddElementPopup();
   buttonPlaceElement.classList.add("popup__save-info_inactive");
   buttonPlaceElement.setAttribute("disabled", true);
@@ -168,6 +182,8 @@ function closePopupByKeydownEsc(evt) {
     closePopup(openedPopup);
   }
 };
+
+export { openPopup, elementPopupImage, titleElementPopup, imageElementPopup };
 
 formElement.addEventListener("submit", fillFormSubmitHandler);
 formCardElement.addEventListener("submit", fillFormAddCardSubmitHandler);
