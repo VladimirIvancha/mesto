@@ -1,5 +1,5 @@
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
 export { openPopup, elementPopupImage, titleElementPopup, imageElementPopup };
 
@@ -63,27 +63,27 @@ const imageElementPopup = elementPopupImage.querySelector(".popup__image");
 const buttonElement = profilePopup.querySelector(".popup__save-info");
 const buttonPlaceElement = popupPlaceElement.querySelector(".popup__save-info");
 
-const validationConfig = ({
-  formSelector: '.form',
-  inputSelector: '.form__item',
-  submitButtonSelector: '.popup__save-info',
-  inactiveButtonClass: 'popup__save-info_inactive',
-  errorClass: 'form__input-error_active'
-});
+const validationConfig = {
+  formSelector: ".form",
+  inputSelector: ".form__item",
+  submitButtonSelector: ".popup__save-info",
+  inactiveButtonClass: "popup__save-info_inactive",
+  errorClass: "form__input-error_active",
+};
 
 const editProfileValidator = new FormValidator(validationConfig, formElement);
 const addCardValidator = new FormValidator(validationConfig, formCardElement);
 
-editProfileValidator.enableValidation()
-addCardValidator.enableValidation()
+editProfileValidator.enableValidation();
+addCardValidator.enableValidation();
 
 function openPopup(popup) {
   popup.classList.add("popup_is-opened");
-  document.addEventListener('keydown', closePopupByKeydownEsc)
+  document.addEventListener("keydown", closePopupByKeydownEsc);
 }
 function closePopup(popup) {
   popup.classList.remove("popup_is-opened");
-  document.removeEventListener('keydown', closePopupByKeydownEsc)
+  document.removeEventListener("keydown", closePopupByKeydownEsc);
 }
 const openEditProfilePopup = function () {
   openPopup(profilePopup);
@@ -145,11 +145,11 @@ const closePopupByClickOnOverlay = function (event) {
 };
 // Реализация закрытия попапа при нажатии клавиши Escape
 function closePopupByKeydownEsc(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_is-opened');
+  if (evt.key === "Escape") {
+    const openedPopup = document.querySelector(".popup_is-opened");
     closePopup(openedPopup);
   }
-};
+}
 
 formElement.addEventListener("submit", fillFormSubmitHandler);
 formCardElement.addEventListener("submit", fillFormAddCardSubmitHandler);
