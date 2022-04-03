@@ -1,4 +1,7 @@
 import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+
+export { openPopup, elementPopupImage, titleElementPopup, imageElementPopup };
 
 const initialCards = [
   {
@@ -46,7 +49,6 @@ const popupFormMesto = popupPlaceElement.querySelector(".form_mesto");
 const popupAddButtonElement = profileElement.querySelector(
   ".profile__add-button"
 );
-const templateElement = document.querySelector(".item-tamplate").content;
 const cardsElements = document.querySelector(".elements");
 const fieldNameCard = document.querySelector("#element-name");
 const fieldNameLink = document.querySelector("#element-link");
@@ -60,6 +62,20 @@ const titleElementPopup = elementPopupImage.querySelector(
 const imageElementPopup = elementPopupImage.querySelector(".popup__image");
 const buttonElement = profilePopup.querySelector(".popup__save-info");
 const buttonPlaceElement = popupPlaceElement.querySelector(".popup__save-info");
+
+const validationConfig = ({
+  formSelector: '.form',
+  inputSelector: '.form__item',
+  submitButtonSelector: '.popup__save-info',
+  inactiveButtonClass: 'popup__save-info_inactive',
+  errorClass: 'form__input-error_active'
+});
+
+const editProfileValidator = new FormValidator(validationConfig, formElement);
+const addCardValidator = new FormValidator(validationConfig, formCardElement);
+
+editProfileValidator.enableValidation()
+addCardValidator.enableValidation()
 
 function openPopup(popup) {
   popup.classList.add("popup_is-opened");
@@ -94,18 +110,6 @@ const openAddElementPopup = function () {
 const closeAddElementPopup = function () {
   closePopup(popupPlaceElement);
 };
-// function createCard(element) {
-//   const cardElement = templateElement.cloneNode(true);
-//   const titleElement = cardElement.querySelector(".element__title");
-//   const imageElement = cardElement.querySelector(".element__image");
-//   titleElement.textContent = element.name;
-//   imageElement.alt = element.name;
-//   imageElement.src = element.link;
-//   setEventDelete(cardElement);
-//   setEventLike(cardElement);
-//   setImagePopup(cardElement);
-//   return cardElement;
-// }
 
 initialCards.forEach((item) => {
   const card = new Card(item, ".item-tamplate");
@@ -114,42 +118,6 @@ initialCards.forEach((item) => {
   cardsElements.appendChild(cardElement);
 });
 
-// initialCards.forEach((item) => {
-//   cardsElements.appendChild(createCard(item));
-// });
-// function setEventDelete(cardElement) {
-//   cardElement
-//     .querySelector(".element__delete-button")
-//     .addEventListener("click", handleDelete);
-// }
-// function handleDelete(event) {
-//   const cardElement = event.target.closest(".element");
-//   cardElement.remove();
-// }
-// function setEventLike(cardElement) {
-//   cardElement
-//     .querySelector(".element__like-icon")
-//     .addEventListener("click", handleLike);
-// }
-// function handleLike(event) {
-//   const cardElement = event.target.closest(".element__like-icon");
-//   cardElement.classList.toggle("element__like-icon-active");
-// }
-// function setImagePopup(cardElement) {
-//   cardElement
-//     .querySelector(".element__image")
-//     .addEventListener("click", handlePopup);
-// }
-// function handlePopup(event) {
-//   event.preventDefault();
-//   openPopup(elementPopupImage);
-//   const cardElement = event.target.closest(".element");
-//   const titleElement = cardElement.querySelector(".element__title");
-//   const imageElement = cardElement.querySelector(".element__image");
-//   titleElementPopup.textContent = titleElement.textContent;
-//   imageElementPopup.alt = imageElement.alt;
-//   imageElementPopup.src = imageElement.src;
-// }
 const closeElementPopupImage = function () {
   closePopup(elementPopupImage);
 };
@@ -182,8 +150,6 @@ function closePopupByKeydownEsc(evt) {
     closePopup(openedPopup);
   }
 };
-
-export { openPopup, elementPopupImage, titleElementPopup, imageElementPopup };
 
 formElement.addEventListener("submit", fillFormSubmitHandler);
 formCardElement.addEventListener("submit", fillFormAddCardSubmitHandler);
