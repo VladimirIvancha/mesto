@@ -1,13 +1,8 @@
 export default class Popup {
     constructor (popupSelector) {
       this._popupSelector = popupSelector;
-      // this._closePopupButton = this._popupSelector.querySelector(".popup__close");
-      this._form = this._popupSelector.querySelector(".form");
-      this._inputList = this._popupSelector.querySelectorAll(".form__item");
       this.imageElementPopup = this._popupSelector.querySelector(".popup__image");
       this.titleElementPopup = this._popupSelector.querySelector(".popup__image-title");
-
-      this.setEventListeners();
     }
 
     open() {
@@ -26,13 +21,6 @@ export default class Popup {
       }
     }
 
-    // _handleOverlayClose = (evt) => {
-    //   if (evt.target !== evt.currentTarget) {
-    //     return;
-    //   }
-    //   this.close(evt.target);
-    // }
-
     setEventListeners() {
       this._popupSelector.addEventListener("mousedown", (evt) => {
         if (
@@ -42,8 +30,5 @@ export default class Popup {
           this.close();
         }
       });
-      // this._popupSelector.addEventListener("click", () => {
-      //   this._handleOverlayClose();
-      // });
     }
 }

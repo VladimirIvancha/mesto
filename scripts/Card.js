@@ -1,22 +1,24 @@
-// import {
-//   elementPopupImage,
-//   titleElementPopup,
-//   imageElementPopup,
-//   // openPopup
-// } from "./utils.js";
 
 export default class Card {
   constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
-    this._cardTemplate = document.querySelector(this._cardSelector).content.querySelector('.element');
     this._handleCardClick = handleCardClick;
-    this._element = this._cardTemplate.cloneNode(true);
-    this._likeButton = this._element.querySelector(".element__like-icon");
+  }
+
+  _getElement() {
+    this._element = document
+      .querySelector(this._cardSelector)
+      .content
+      .querySelector('.element')
+      .cloneNode(true);
   }
 
   createCard() {
+    this._getElement();
+
+    this._likeButton = this._element.querySelector(".element__like-icon");
 
     this._element.querySelector(".element__title").textContent = this._name;
     this._element.querySelector(".element__image").alt = this._name;
@@ -39,14 +41,6 @@ export default class Card {
   _handleImageClick() {
     this._handleCardClick(this);
   }
-
-  // _handlePopup() {
-  //   openPopup(elementPopupImage);
-
-  //   titleElementPopup.textContent = this._name;
-  //   imageElementPopup.alt = this._name;
-  //   imageElementPopup.src = this._link;
-  // }
 
   _setEventListeners() {
     this._element

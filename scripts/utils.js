@@ -1,5 +1,3 @@
-// import FormValidator from "./FormValidator.js";
-
 export const initialCards = [
   {
     name: "Архыз",
@@ -58,39 +56,3 @@ export const titleElementPopup = elementPopupImage.querySelector(
 export const imageElementPopup = elementPopupImage.querySelector(".popup__image");
 export const buttonElement = profilePopup.querySelector(".popup__save-info");
 export const buttonPlaceElement = popupPlaceElement.querySelector(".popup__save-info");
-export const formData = {
-  name: fieldNameCard.value,
-  link: fieldNameLink.value,
-}
-
-// const validationConfig = {
-//   formSelector: ".form",
-//   inputSelector: ".form__item",
-//   submitButtonSelector: ".popup__save-info",
-//   inactiveButtonClass: "popup__save-info_inactive",
-//   errorClass: "form__input-error_active",
-// };
-
-// export const editProfileValidator = new FormValidator(
-//     validationConfig,
-//     formProfileElement
-// );
-// export const addCardValidator = new FormValidator(validationConfig, formCardElement);
-
-// export function openPopup(popup) {
-//   popup.classList.add("popup_is-opened");
-//   document.addEventListener("keydown", closePopupByKeydownEsc);
-// }
-
-// export function closePopup(popup) {
-//   popup.classList.remove("popup_is-opened");
-//   document.removeEventListener("keydown", closePopupByKeydownEsc);
-// }
-
-// // Реализация закрытия попапа при нажатии клавиши Escape
-// function closePopupByKeydownEsc(evt) {
-//   if (evt.key === "Escape") {
-//     const openedPopup = document.querySelector(".popup_is-opened");
-//     closePopup(openedPopup);
-//   }
-// }
