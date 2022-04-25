@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./index.css">
   <title>Mesto</title>
 </head>
 <body class="body">
     <div class="page">
         <!-- Чердак -->
         <header class="header">
-          <img src="./images/vector-logo-mesto-russia.svg" alt="Логотип место Россия" class="header__logo">
+          <img src="<%=require('./images/vector-logo-mesto-russia.svg')%>" alt="Логотип место Россия" class="header__logo">
         </header>
         <!-- Основной блок -->
         <main class="content">
           <section class="profile">
             <div class="profile__wrapper">
-              <img src="./images/custo.png" alt="Жак Ив Кусто" class="profile__avatar">
+              <img src="<%=require('./images/custo.png')%>" alt="Жак Ив Кусто" class="profile__avatar">
               <div class="profile__info">
                 <div class="profile__title-wrapper">
                   <div class="profile__text">
@@ -90,6 +89,5 @@
           </article>
         </template>
     </div>
-    <script type="module" src="./index.js"></script>
 </body>
 </html>
