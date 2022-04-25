@@ -1,9 +1,9 @@
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopupWithImage from "./PopupWithImage.js";
-import Section from "./Section.js";
-import UserInfo from "./UserInfo.js";
+import Card from "./scripts/components/Card.js";
+import FormValidator from "./scripts/components/FormValidator.js";
+import PopupWithForm from "./scripts/components/PopupWithForm.js";
+import PopupWithImage from "./scripts/components/PopupWithImage.js";
+import Section from "./scripts/components/Section.js";
+import UserInfo from "./scripts/components/UserInfo.js";
 
 import {
   initialCards,
@@ -19,7 +19,7 @@ import {
   fieldNameCard,
   fieldNameLink,
   elementPopupImage,
-} from "./utils.js";
+} from "./scripts/utils/utils.js";
 
 
 
