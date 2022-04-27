@@ -1,18 +1,20 @@
 export default class UserInfo {
-    constructor (nameSelector, prophecySelector) {
-        this._nameArea = nameSelector;
-        this._prophecyArea = prophecySelector;
+    constructor (userInfoSelector) {
+        this._userName = document.querySelector(userInfoSelector.name);
+        this._userProphecy = document.querySelector(userInfoSelector.prophecy);
     }
     
     getUserInfo () {
-        return {
-            name: this._nameArea.textContent, 
-            prophecy: this._prophecyArea.textContent
-        };
+        const userInfo = {
+            name: this._userName.textContent,
+            prophecy: this._userProphecy.textContent,
+        }
+        
+        return userInfo
     }
     
     setUserInfo ({name, prophecy}) {
-        this._nameArea.textContent = name;
-        this._prophecyArea.textContent = prophecy;
+        this._userName.textContent = name;
+        this._userProphecy.textContent = prophecy;
     }
 }

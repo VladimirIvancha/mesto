@@ -27,32 +27,45 @@ export const initialCards = [
 
 export const profilePopup = document.querySelector(".profile-popup");
 const profileElement = document.querySelector(".profile");
-export const popupCloseButtonElement = profilePopup.querySelector(".popup__close");
+const popupCloseButtonElement = profilePopup.querySelector(".popup__close");
 export const popupEditButtonElement = profileElement.querySelector(
   ".profile__edit-button"
 );
-export const formProfileElement = profilePopup.querySelector(".form");
-export const profileName = profileElement.querySelector(".profile__title");
-export const profileJob = profileElement.querySelector(".profile__subtitle");
-export const fieldNameData = profilePopup.querySelector(".form__item-name");
-export const fieldNameJob = profilePopup.querySelector(".form__item-prophecy");
+const formProfileElement = profilePopup.querySelector(".form");
+const profileName = profileElement.querySelector(".profile__title");
+const profileJob = profileElement.querySelector(".profile__subtitle");
+const fieldNameData = profilePopup.querySelector(".form__item-name");
+const fieldNameJob = profilePopup.querySelector(".form__item-prophecy");
 export const popupPlaceElement = document.querySelector(".element-popup");
-export const formCardElement = popupPlaceElement.querySelector(".form");
-export const popupCloseButtonPlaceElement =
+const formCardElement = popupPlaceElement.querySelector(".form");
+const popupCloseButtonPlaceElement =
   popupPlaceElement.querySelector(".popup__close");
-export const popupFormMesto = popupPlaceElement.querySelector(".form_mesto");
+const popupFormMesto = popupPlaceElement.querySelector(".form_mesto");
 export const popupAddButtonElement = profileElement.querySelector(
   ".profile__add-button"
 );
-export const cardsElements = document.querySelector(".elements");
-export const fieldNameCard = document.querySelector("#element-name");
-export const fieldNameLink = document.querySelector("#element-link");
-export const elementPopupImage = document.querySelector(".element-popup-image");
-export const popupCloseButtonImageElement =
+const cardsElements = document.querySelector(".elements");
+const fieldNameCard = document.querySelector("#element-name");
+const fieldNameLink = document.querySelector("#element-link");
+const elementPopupImage = document.querySelector(".element-popup-image");
+const popupCloseButtonImageElement =
   elementPopupImage.querySelector(".popup__close");
-export const titleElementPopup = elementPopupImage.querySelector(
+const titleElementPopup = elementPopupImage.querySelector(
   ".popup__image-title"
 );
-export const imageElementPopup = elementPopupImage.querySelector(".popup__image");
-export const buttonElement = profilePopup.querySelector(".popup__save-info");
-export const buttonPlaceElement = popupPlaceElement.querySelector(".popup__save-info");
+const imageElementPopup = elementPopupImage.querySelector(".popup__image");
+const buttonElement = profilePopup.querySelector(".popup__save-info");
+const buttonPlaceElement = popupPlaceElement.querySelector(".popup__save-info");
+
+export const profileSelector = ".profile-popup"; // cелектор попапа с профилем
+export const addCardSelector = ".element-popup"; // селектор попапа с формой добавления карточки
+export const popupWithImageSelector = ".element-popup-image" // селектор попапа с большим фото
+
+const profileNameSelector = ('.profile__title'); //Селектор имени пользователя 
+const profileProphecySelector = ('.profile__subtitle');  //Селектор описания пользователя
+export const userInfoSelector = { // данные пользователя
+  name: profileNameSelector,
+  prophecy: profileProphecySelector,
+}
+
+export const cardListSection = ".elements"; //селектор секция с карточками
