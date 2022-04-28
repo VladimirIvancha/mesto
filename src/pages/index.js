@@ -54,9 +54,9 @@ const popupEditProfile = new PopupWithForm(profileSelector, (formData) => {
 })
 
 popupEditButtonElement.addEventListener('click', () => {
-    popupEditProfile.setInputValues(copyProfileData.getUserInfo());
-    popupEditProfile.open();
     editProfileValidator.checkFormValidity();
+    popupEditProfile.setInputValues(copyProfileData.getUserInfo());
+    popupEditProfile.open(); 
 })
 
 popupEditProfile.setEventListeners()
@@ -88,8 +88,8 @@ const popupAddCard = new PopupWithForm(addCardSelector, ({'element-name': name, 
 popupAddCard.setEventListeners()
 
 popupAddButtonElement.addEventListener('click', () => {
-    popupAddCard.open();
     addCardValidator.checkFormValidity();
+    popupAddCard.open();
 })
 
 addCardValidator.enableValidation();
