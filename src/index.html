@@ -50,7 +50,7 @@
           </div>
         </div>
         <div class="popup edit-avatar-popup">
-          <div class="popup__container">
+          <div class="popup__container popup__container_avatar">
             <button type="button" aria-label="закрыть" class="popup__close"></button>
             <h2 class="popup__title">Обновить аватар</h2>
             <form name="avatar-form" class="form form_avatar" novalidate>
@@ -84,19 +84,21 @@
         <div class="popup element-popup-image">
           <div class="popup__image-container">
             <button type="button" aria-label="закрыть" class="popup__close popup__close_correct"></button>
-            <img src="#" class="popup__image" alt="">
-            <h4 class="popup__image-title">Место</h4>
+            <img class="popup__image">
+            <h4 class="popup__image-title"></h4>
           </div>
         </div>
         <div class="popup delete-card-popup">
-          <div class="popup__container">
-            <button type="button" aria-label="закрыть" class="popup__close"></button>
-            <h2 class="popup__title">Вы уверены?</h2>
-            <form name="popup-delete-form" class="form form_delete" novalidate>
-              <button type="submit" class="popup__save-info">
-                <span class="popup__button-text">Да</span>
-              </button>
-            </form>
+          <div class="popup__container popup__container_delete">
+            <fieldset class="form__edit">
+              <button type="button" aria-label="закрыть" class="popup__close"></button>
+              <h2 class="popup__title popup__title_delete">Вы уверены?</h2>
+              <form name="popup-delete-form" class="form form_delete" novalidate>
+                <button type="submit" class="popup__save-info">
+                  <span class="popup__button-text">Да</span>
+                </button>
+              </form>
+            </fieldset>
           </div>
         </div>
         <!-- Подвал -->
@@ -110,8 +112,10 @@
               <button type="button" aria-label="удалить" class="element__delete-button"></button>
             <div class="element__wrapper">
                 <h2 class="element__title"></h2>
-                <button type="button" aria-label="лайкнуть" class="element__like-icon"></button>
-                <span class="element__like-value"></span>
+                <div class="element__like-wrapper"> 
+                  <button type="button" aria-label="лайкнуть" class="element__like-icon"></button>
+                  <span class="element__like-value"></span>
+                </div>
             </div>
           </article>
         </template>

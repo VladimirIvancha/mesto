@@ -38,6 +38,10 @@ const api = new Api({
 //Загрузка данных профиля
 const userInfo = new UserInfo(userInfoSelector);
 
+//Попап с увеличенным видом картинки
+const popupBigImage = new PopupWithImage(popupWithImageSelector);
+popupBigImage.setEventListeners();
+
 // Подгрузка данных пользователя и карточек
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([user, cards]) => {
@@ -50,13 +54,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     cardSection.renderItems(cards);
   })
   .catch((err) => {
-    alert(
-      "Что-то пошло не так при загрузке профиля!"
-    );
-    // userInfo.setUserInfo({
-    //   name: "Ошибка загрузки",
-    //   prophecy: "Ошибка загрузки",
-    // });
+    { console.log(err) };
   });
 
 // Валидация
@@ -125,7 +123,7 @@ const createCard = (item) => {
       item,
       deletable: myId === item.owner._id,
       likedByMe: item.likes.some((likeitem) => likeitem._id == myId),
-      selector: "#template",
+      cardSelector: "#template",
       handleCardClick: popupBigImage.open.bind(popupBigImage),
       handleTrashClick: (card) => {
         popupDeleteCard.open(() => deleteCardApi(card));
@@ -167,32 +165,7 @@ editAvatarButton.addEventListener("click", () => {
   
 // Попап удаления карточки
 const popupDeleteCard = new PopupWithConfirmation(deleteCardPopupSelector);
-  
-
-
-//Попап с увеличенным видом картинки
-const popupBigImage = new PopupWithImage(popupWithImageSelector);
-popupBigImage.setEventListeners();
-// const popupWithImage = new PopupWithImage(popupWithImageSelector);
-// popupWithImage.setEventListeners();
-
-//функция для создания карточки
-// const addNewCard = (data) => {
-//     const card = new Card(data, ".item-tamplate", () => popupWithImage.open(data));
-//     return card.createCard();
-// };
-
-//Отрисовка начальных карточек
-// const cardsList = new Section({
-//     items: initialCards,
-//     renderer: (cardItem) => {
-//         const card = addNewCard(cardItem);
-//         cardsList.addItem(card);
-//     }
-// }, 
-// cardListSection
-// );
-// cardsList.renderItems();
+popupDeleteCard.setEventListeners();
 
 // Попап редактирования данных профиля
 const popupEditProfile = new PopupWithForm(
@@ -208,16 +181,10 @@ const popupEditProfile = new PopupWithForm(
             alert("Ой! Что-то пошло не так! Mesto не смог сохранить ваше имя");
           })
           .finally(() => popup.renderLoading(false));
-    
-    // (formData) => {
-    // copyProfileData.setUserInfo(formData);
-    // popupEditProfile.close();
 })
 
 popupEditButtonElement.addEventListener('click', () => {
     popupEditProfile.setInputValues(userInfo.getUserInfo());
-    // fieldNameData.value = userInfo.getUserInfo().name;
-    // fieldNameProphecy.value = userInfo.getUserInfo().prophecy;
     editProfileValidator.checkFormValidity();
     popupEditProfile.open(); 
 })
