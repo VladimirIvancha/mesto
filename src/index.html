@@ -15,12 +15,12 @@
         <main class="content">
           <section class="profile">
             <div class="profile__wrapper">
-              <img src="<%=require('./images/custo.png')%>" alt="Жак Ив Кусто" class="profile__avatar">
+              <div class="profile__avatar"></div>
               <div class="profile__info">
                 <div class="profile__title-wrapper">
                   <div class="profile__text">
-                    <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <p class="profile__subtitle">Исследователь океана</p>
+                    <h1 class="profile__title"></h1>
+                    <p class="profile__subtitle"></p>
                   </div>
                   <button type="button" aria-label="редактировать" class="profile__edit-button"></button>
                 </div>
@@ -36,7 +36,7 @@
           <div class="popup__container">
             <button type="button" aria-label="закрыть" class="popup__close"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form name="profile-form" class="form" novalidate>
+            <form name="profile-form" class="form form_profile" novalidate>
               <fieldset class="form__edit">
                 <input type="text" name="name" class="form__item form__item-name" id="profile-name" value="" required placeholder="Ваше Имя" minlength="2" maxlength="40">
                 <span class="form__input-error" id="profile-name-error"></span>
@@ -49,10 +49,25 @@
             </form>
           </div>
         </div>
+        <div class="popup edit-avatar-popup">
+          <div class="popup__container">
+            <button type="button" aria-label="закрыть" class="popup__close"></button>
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form name="avatar-form" class="form form_avatar" novalidate>
+              <fieldset class="form__edit">
+                <input type="url" name="avatar-link" class="form__item form__item-avatar" id="avatar-link" placeholder="Ссылка на новый аватар" required>
+                <span class="form__input-error" id="avatar-link-error"></span>
+                <button type="submit" class="popup__save-info">
+                  <span class="popup__button-text">Сохранить</span>
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </div>
         <div class="popup element-popup">
           <div class="popup__container">
             <button type="button" aria-label="закрыть" class="popup__close"></button>
-            <h3 class="popup__title">Новое место</h3>
+            <h2 class="popup__title">Новое место</h2>
             <form name="element-form" class="form form_mesto" novalidate>
               <fieldset class="form__edit">
                 <input type="text" name="element-name" class="form__item" id="element-name" value="" required placeholder="Название" minlength="2" maxlength="30">
@@ -73,6 +88,17 @@
             <h4 class="popup__image-title">Место</h4>
           </div>
         </div>
+        <div class="popup delete-card-popup">
+          <div class="popup__container">
+            <button type="button" aria-label="закрыть" class="popup__close"></button>
+            <h2 class="popup__title">Вы уверены?</h2>
+            <form name="popup-delete-form" class="form form_delete" novalidate>
+              <button type="submit" class="popup__save-info">
+                <span class="popup__button-text">Да</span>
+              </button>
+            </form>
+          </div>
+        </div>
         <!-- Подвал -->
         <footer class="footer">
           <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
@@ -85,6 +111,7 @@
             <div class="element__wrapper">
                 <h2 class="element__title"></h2>
                 <button type="button" aria-label="лайкнуть" class="element__like-icon"></button>
+                <span class="element__like-value"></span>
             </div>
           </article>
         </template>

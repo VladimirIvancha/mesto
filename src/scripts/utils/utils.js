@@ -34,8 +34,8 @@ export const popupEditButtonElement = profileElement.querySelector(
 const formProfileElement = profilePopup.querySelector(".form");
 const profileName = profileElement.querySelector(".profile__title");
 const profileJob = profileElement.querySelector(".profile__subtitle");
-const fieldNameData = profilePopup.querySelector(".form__item-name");
-const fieldNameJob = profilePopup.querySelector(".form__item-prophecy");
+export const fieldNameData = profilePopup.querySelector(".form__item-name");
+export const fieldNameProphecy = profilePopup.querySelector(".form__item-prophecy");
 export const popupPlaceElement = document.querySelector(".element-popup");
 const formCardElement = popupPlaceElement.querySelector(".form");
 const popupCloseButtonPlaceElement =
@@ -44,6 +44,8 @@ const popupFormMesto = popupPlaceElement.querySelector(".form_mesto");
 export const popupAddButtonElement = profileElement.querySelector(
   ".profile__add-button"
 );
+export const editAvatarButton = profileElement.querySelector(".profile__avatar"); 
+export const popupAvatar = document.querySelector(".edit-avatar-popup")
 const cardsElements = document.querySelector(".elements");
 const fieldNameCard = document.querySelector("#element-name");
 const fieldNameLink = document.querySelector("#element-link");
@@ -60,12 +62,16 @@ const buttonPlaceElement = popupPlaceElement.querySelector(".popup__save-info");
 export const profileSelector = ".profile-popup"; // cелектор попапа с профилем
 export const addCardSelector = ".element-popup"; // селектор попапа с формой добавления карточки
 export const popupWithImageSelector = ".element-popup-image" // селектор попапа с большим фото
+export const deleteCardPopupSelector = ".delete-card-popup" // селектор попапа удаления
+export const editAvatarPopupSelector = ".edit-avatar-popup" // селектор попапа редактирования аватара
 
 const profileNameSelector = ('.profile__title'); //Селектор имени пользователя 
 const profileProphecySelector = ('.profile__subtitle');  //Селектор описания пользователя
+const profileAvatarSelector = ('.profile__avatar');  //Селектор аватара пользователя
 export const userInfoSelector = { // данные пользователя
   name: profileNameSelector,
   prophecy: profileProphecySelector,
+  avatar: profileAvatarSelector,
 }
 
 export const cardListSection = ".elements"; //селектор секция с карточками
