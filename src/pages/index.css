@@ -3,6 +3,7 @@
 @import url(../blocks/body/body.css);
 @import url(../blocks/content/content.css);
 @import url(../blocks/delete-card-popup/delete-card-popup.css);
+@import url(../blocks/delete-card-popup/__edit/delete-card-popup__edit.css);
 @import url(../blocks/edit-avatar-popup/edit-avatar-popup.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
