@@ -75,3 +75,12 @@ export const userInfoSelector = { // данные пользователя
 }
 
 export const cardListSection = ".elements"; //селектор секция с карточками
+
+// аргументы для валидации
+export const validationConfig = {
+  formSelector: ".form",
+  inputSelector: ".form__item",
+  submitButtonSelector: ".popup__save-info",
+  inactiveButtonClass: "popup__save-info_inactive",
+  errorClass: "form__input-error_active",
+};

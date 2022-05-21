@@ -9,8 +9,6 @@ import UserInfo from "../scripts/components/UserInfo.js";
 import Api from "../scripts/components/Api.js";
 
 import {
-  fieldNameData,
-  fieldNameProphecy,
   profilePopup,
   popupEditButtonElement,
   popupPlaceElement,
@@ -24,6 +22,7 @@ import {
   editAvatarPopupSelector,
   editAvatarButton,
   popupAvatar,
+  validationConfig,
 } from "../scripts/utils/utils.js";
 
 //Работа с api
@@ -58,14 +57,6 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   });
 
 // Валидация
-const validationConfig = {
-    formSelector: ".form",
-    inputSelector: ".form__item",
-    submitButtonSelector: ".popup__save-info",
-    inactiveButtonClass: "popup__save-info_inactive",
-    errorClass: "form__input-error_active",
-};
-
 const editProfileValidator = new FormValidator(
     validationConfig,
     profilePopup
